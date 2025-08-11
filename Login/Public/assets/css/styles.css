@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: #f4f4f4;
+}
+
+.form-container {
+    background: white;
+    padding: 20px;
+    margin: 15px auto;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+.success { background: #4CAF50; color: white; }
+.error { background: #F44336; color: white; }
+/* Barra de navegación */
+/* .auth-nav {
+    display: flex;
+    background: #f0f0f0; 
+    border-radius: 8px;
+    padding: 4px;
+    width: fit-content;
+    margin: 0 auto 20px;
+} */
+
+/* .auth-nav button {
+    padding: 10px 20px;
+    border: none;
+    background: #f0f0f0;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+} */
+
+/* .auth-nav button.active {
+    background: #007bff;
+    color: white;
+} */
+
+/* Formularios */
+/* Contenedor principal: altura fija y contexto para hijos absolutos */
+.auth-container {
+    position: relative;  /* Necesario para posicionar hijos absolutamente */
+    height: 300px;      /* Altura fija (ajústala según tus necesidades) */
+    width: 100%;        /* Ancho completo */
+    max-width: 400px;   /* Evita que se estire demasiado en pantallas grandes */
+    margin: 0 auto;     /* Centrado */
+    overflow: hidden;   /* Opcional: recorta contenido que sobresalga */
+    border: 2px solid rgba(12, 11, 11, 0.37); /* Borde del contenedor */
+    border-radius: 3px; /* Bordes redondeados */
+
+}
+
+/* Estilos base para ambos formularios */
+.auth-form {
+    position: absolute;  /* Posicionamiento absoluto dentro del contenedor */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 100;          /* Invisible por defecto */
+    transition: opacity 0.4s ease; /* Transición suave */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    background: rgba(255, 255, 255, 0.85);
+    padding: 20px;       /* Espaciado interno */
+    box-sizing: border-box; /* Incluye padding en el ancho/alto total */
+}
+
+input:hover {
+    border-color: #b1b1b1;
+}
+* {
+    transition: all 0.8s ease;
+}
+.auth-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.auth-btn {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Contenedor de pestañas */
+.auth-tabs {
+    display: flex;
+    gap: 0; /* Elimina espacio entre botones */
+    background: #f5f5f5; /* Fondo gris claro (opcional) */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 4px; /* Espacio interno para efecto "active" */
+    width: fit-content; /* Ajusta al contenido */
+    margin: 0 auto 20px; /* Centrado y margen inferior */
+}
+#loginBtn{
+    margin: 10px;
+    background-color: #4CAF50;
+    opacity: 0.9;
+    background: linear-gradient(135deg, #a6c781 0%, #3fbb45 100%); /* Gradiente morado/azul */
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px; /* Bordes redondeados */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#registerBtn{
+    margin: 10px;
+    background: linear-gradient(135deg, #7a9aca 0%, #275bcc 100%); /* Gradiente morado/azul */
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px; /* Bordes redondeados */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo base de los botones */
+.auth-tab {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 600; /* Texto en negrita */
+    color: #666; /* Color gris para estado inactivo */
+    transition: all 0.3s ease; /* Transición suave para todos los efectos */
+    position: relative;
+    border-radius: 6px; /* Bordes redondeados */
+    margin: 5px;
+}
+
+.login-tab.active {
+    background: #4CAF50 !important; /* Verde */
+    color: white !important;
+}
+/* Estilo cuando el botón está ACTIVO (pestaña actual) */
+.auth-tab.active {
+    color: #193a5e; /* Color azul para texto */
+    background: white; /* Fondo blanco */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Efecto al pasar el cursor (hover) */
+.auth-tab:hover {
+    color: #430fa3; /* Mismo color que active para consistencia */
+}
+
+/* Opcional: Barra inferior animada para active */
+.auth-tab.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #000000;
+    animation: fadeIn 0.3s ease;
+}
+.register-tab.active {
+    background: #2196F3; /* Azul */
+    color: white;
+}
+/* Efectos hover */
+.login-tab:hover:not(.active) {
+    background: #e8f5e9; /* Verde claro */
+    color: #2E7D32;
+}
+
+.register-tab:hover:not(.active) {
+    background: #e3f2fd; /* Azul claro */
+    color: #1565C0;
+}
+#loginForm {
+    background-color: #d4e2d5c2; /* Mostrar el formulario de inicio de sesión */
+}
+#registerForm {
+    background-color: #e4eaf1d7; /* Mostrar el formulario de registro */
+}
+h2{
+    font-family: 'Poppins', sans-serif;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
