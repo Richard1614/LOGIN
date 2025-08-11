@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Auth con Supabase</title>
+    <link rel="stylesheet" href="./public/assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <!-- auth.js manejará la lógica de Supabase -->
+    <script defer src="./public/assets/js/auth.js"></script>
+    <!-- animations.js será para efectos visuales -->
+    <script defer src="./public/assets/js/animations.js"></script>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="auth-nav">
+        <button id="showLogin" class="auth-tab login-tab active">Iniciar Sesión</button>
+        <button id="showRegister" class="auth-tab register-tab">Registrarse</button>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <div class="auth-container">
+        <!-- Formulario de Login (visible por defecto) -->
+        <div id="loginForm" class="auth-form">
+            <h2>Iniciar Sesión</h2>
+            <input type="email" id="loginEmail" placeholder="Correo">
+            <input type="password" id="loginPassword" placeholder="Contraseña">
+            <div></div>
+            <button id="loginBtn" class="auth-btn">Ingresar</button>
+        </div>
+
+        <!-- Formulario de Registro (oculto inicialmente) -->
+        <div id="registerForm" class="auth-form" style="display: none;">
+            <h2>Registrarse</h2>
+            <input type="email" id="registerEmail" placeholder="Correo">
+            <input type="password" id="registerPassword" placeholder="Contraseña">
+            <button id="registerBtn" class="auth-btn">Crear Cuenta</button>
+        </div>
+    </div>
+</body>
+</html>
